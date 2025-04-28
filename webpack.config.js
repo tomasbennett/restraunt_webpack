@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 
 const config = {
@@ -14,20 +15,33 @@ const config = {
     ,module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                use: "ts-loader"
+                test: /\.tsx?$/i,
+                use: ["ts-loader"]
+            }
+            ,{
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"]
             }
         ]
     }
 
     
-    ,mode: "development"
+    ,mode: "production"
 
     ,resolve: {
-        extensions: [".ts", ".js", ".json", ".jsx", ".wasm"]
+        extensions: [".js", ".css", ".json", ".jsx", ".wasm", ".ts"]
     }
 
+    ,devtool: "source-map"
 
+
+    ,plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/Pages/HTML/index.html",
+            filename: "index.html",
+            inject: "body"
+        })
+    ]
 };
 
 module.exports = config;
