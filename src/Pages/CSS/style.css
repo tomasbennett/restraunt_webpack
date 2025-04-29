@@ -22,13 +22,15 @@ body{
     align-items: center;
     justify-content: center;
 
+    color: white;
+
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), black);
 }
 
 button{
-    background-color: aliceblue;
+    background-color: orange;
 
-    width: 10rem;
+    width: 20rem;
     height: 3rem;
 
     border-radius: .6rem;

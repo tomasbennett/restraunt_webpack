@@ -1,5 +1,7 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 
 const config = {
@@ -11,7 +13,6 @@ const config = {
         clean: true
     }
 
-
     ,module: {
         rules: [
             {
@@ -22,26 +23,28 @@ const config = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"]
             }
+            ,{
+                test: /\.html$/i,
+                use: ["html-loader"]
+            }
         ]
     }
 
-    
     ,mode: "production"
 
     ,resolve: {
         extensions: [".js", ".css", ".json", ".jsx", ".wasm", ".ts"]
     }
 
-    ,devtool: "source-map"
-
+    ,devtool: false
 
     ,plugins: [
+        new CleanWebpackPlugin({}),
         new HtmlWebpackPlugin({
-            template: "./src/Pages/HTML/index.html",
-            filename: "index.html",
-            inject: "body"
+            template: "./src/Pages/HTML/index.html"
         })
     ]
+
 };
 
 module.exports = config;

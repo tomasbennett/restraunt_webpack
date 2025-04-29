@@ -1,1 +1,1 @@
-alert("This dev server test has worked just remember it now!");
+console.log("This dev server test has worked just remember it now!");
