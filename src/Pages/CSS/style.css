@@ -9,29 +9,24 @@
     padding: 0;
     border: 0;
     outline: 0;
+
+    box-sizing: border-box;
 }
 
 html,
 body{
+    position: relative;
+
     font-size: 1.6rem;
 
     width: 100dvw;
     height: 100dvh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
 
-    color: white;
+    grid-template-columns: minmax(40rem, 4fr) minmax(30rem, 1fr) minmax(0rem, 4fr);
+    grid-template-rows: 1fr;
 
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), black);
+    /* overflow: hidden; */
 }
 
-button{
-    background-color: orange;
-
-    width: 20rem;
-    height: 3rem;
-
-    border-radius: .6rem;
-}

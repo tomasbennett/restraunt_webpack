@@ -6,14 +6,43 @@
     <title>Restraunt Page</title>
 </head>
 <body>
-    <header id="odin-header">
-        <nav id="odin-nav">
-            <button class="page-switch-button" type="button"></button><button class="page-switch-button" type="button"></button><button class="page-switch-button" type="button"></button>
-        </nav>
-    </header>
-    <div id="content">
+    
+    <div id="block-background">
         
     </div>
-    <p id="please-work">This should appear if webpack devs have any idea as to waht they are doing</p>
+
+    <main>
+
+        <header id="odin-header">
+            <nav id="odin-nav">
+                <button id="home-button" class="page-switch-button current-page" type="button">
+                    Home
+                </button>
+                <button id="menu-button" class="page-switch-button" type="button">
+                    Menu
+                </button>
+                <button id="about-button" class="page-switch-button" type="button">
+                    About
+                </button>
+            </nav>
+        </header>
+        <div id="content">
+            
+        </div>
+    </main>
+
+    <div id="video-background-container">
+        <div class="video-background">
+            <video
+                id="cocktail-drinks-middle-screen"
+                autoplay="autoplay"
+                muted
+                loop>
+                <source src="../Media/Videos/cocktail-drinks1-middleScreen.mp4" type="video/mp4"/>
+            </video>
+        </div>
+    </div>
+    
+    
 </body>
 </html>

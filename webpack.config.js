@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { default: test } = require("node:test");
 
 
 const config = {
@@ -10,7 +11,8 @@ const config = {
     ,output: {
         path: path.resolve(__dirname, "dist"),
         filename: "main.js",
-        clean: true
+        clean: true,
+        assetModuleFilename: "./Media/Videos/[name].[hash].[ext]"
     }
 
     ,module: {
@@ -25,18 +27,27 @@ const config = {
             }
             ,{
                 test: /\.html$/i,
-                use: ["html-loader"]
+                loader: "html-loader",
+                options: {
+                    sources: {
+                        list: [
+                            {
+                                tag: "source",
+                                attribute: "src",
+                                type: "src"
+                            }
+                        ]
+                    }
+                }
             }
         ]
     }
 
-    ,mode: "production"
+    ,mode: "development"
 
     ,resolve: {
         extensions: [".js", ".css", ".json", ".jsx", ".wasm", ".ts"]
     }
-
-    ,devtool: false
 
     ,plugins: [
         new CleanWebpackPlugin({}),
