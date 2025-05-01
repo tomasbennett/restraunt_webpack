@@ -24,7 +24,7 @@ body{
 
     display: grid;
 
-    grid-template-columns: minmax(40rem, 4fr) minmax(30rem, 1fr) minmax(0rem, 4fr);
+    grid-template-columns: minmax(50rem, 4fr) minmax(40rem, 1fr) minmax(0rem, 4fr);
     grid-template-rows: 1fr;
 
     /* overflow: hidden; */
