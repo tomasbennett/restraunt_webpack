@@ -4,3 +4,5 @@ import "./Pages/CSS/main.css";
 import "./Pages/CSS/header.css"
 import "./Pages/CSS/style.css";
 import "./Pages/JavaScript/test";
+
+import "./TypeScript/Main.ts";

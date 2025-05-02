@@ -1,6 +1,9 @@
 :root{
-    font-size: 62.5%
+    font-size: 62.5%;
+
 }
+
+
 
 *,
 *::before,
@@ -22,10 +25,9 @@ body{
     width: 100dvw;
     height: 100dvh;
 
-    display: grid;
 
-    grid-template-columns: minmax(50rem, 4fr) minmax(40rem, 1fr) minmax(0rem, 4fr);
-    grid-template-rows: 1fr;
+
+    
 
     /* overflow: hidden; */
 }

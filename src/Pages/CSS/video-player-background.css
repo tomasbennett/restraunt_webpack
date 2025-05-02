@@ -1,7 +1,10 @@
 #video-background-container{
+    position: absolute;
 
-    grid-column: -1 / -3;
-    grid-row: 1 / 1;
+    top: 0;
+    left: 0;
+
+    z-index: -1;
 
     display: grid;
 
@@ -31,7 +34,51 @@
     width: 100%;
 
     object-fit: cover;
+    object-position: center;
 
     pointer-events: none;
     user-select: none;
+
+    opacity: 0;
+
+    transition: opacity 1500ms linear;
+}
+
+
+.video-background video.current-video{
+    opacity: 1;
+
+    transition: none;
+}
+
+/* 
+.video-background:nth-of-type(1) video{
+    animation: video-carousel 40s linear infinite;
+}
+
+.video-background:nth-of-type(2) video{
+    animation: video-carousel 40s linear 10s infinite;
+}
+
+.video-background:nth-of-type(3) video{
+    animation: video-carousel 40s linear 20s infinite;
+}
+
+.video-background:nth-of-type(4) video{
+    animation: video-carousel 40s linear 30s infinite;
+} */
+
+
+
+@keyframes video-carousel {
+    0%{
+        opacity: 1;
+    }
+
+    25%{
+        opacity: 1;
+    }
+    37.5%{
+        opacity: 0;
+    }
 }

@@ -1,26 +1,35 @@
 header#odin-header{
 
+    flex-shrink: 0;
 
+    align-self: flex-start;
+
+    margin-top: 1rem;
+    
 
     display: flex;
     align-items: center;
     justify-content: center;
     
     width: 100%;
-    height: 12rem;
+    height: 11rem;
 
 
-    /* box-shadow: 0rem .4rem .8rem rgba(255, 255, 255, 0.4); */
-/* 
-    border-bottom: .1rem solid rgba(255, 255, 255, 0.4); */
+    background-color: rgba(22, 22, 22, 0.2);
+    
+    backdrop-filter: blur(20px);
+
+
+    box-shadow: 0rem .4rem .8rem rgba(10, 10, 10, 0.4);
+
+    /* border-bottom: .1rem solid rgba(255, 255, 255, 0.4); */
 
 }
 
 
 nav#odin-nav{
-    /* margin-left: auto; */
-
-    /* margin-right: auto; */
+    margin-left: auto;
+    margin-right: .4rem;
 
     flex-shrink: 0;
 
@@ -51,7 +60,7 @@ button.page-switch-button{
 
     cursor: pointer;
 
-    transition: background-color 300ms linear;
+    /* transition: background-color 300ms linear; */
 }
 
 button.page-switch-button::after{
@@ -65,8 +74,8 @@ button.page-switch-button::after{
 
     background-color: transparent;
 
-    width: .6rem;
-    height: .6rem;
+    width: .7rem;
+    height: .7rem;
 
     border-radius: 50%;
 
