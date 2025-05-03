@@ -1,5 +1,18 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url("../Fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf")   format('truetype');                            
+    font-style: normal;                             
+    font-display: swap;                             
+  }
+
+
+
+
 :root{
     font-size: 62.5%;
+
+    --white-colour: #ffffff;
+    --light-orange-colour: #c49b54;
 
 }
 
@@ -25,10 +38,25 @@ body{
     width: 100dvw;
     height: 100dvh;
 
+    font-family: "Roboto", sans-serif;
 
-
-    
+    color: var(--white-colour);
 
     /* overflow: hidden; */
 }
 
+
+.header-title{
+    font-family: "Playfair Display", sans-serif;
+
+    color: var(--white-colour);
+}
+
+
+.title-first-line{
+    color: var(--white-colour);
+}
+
+.title-second-line{
+    color: var(--light-orange-colour);
+}

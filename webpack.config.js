@@ -12,11 +12,19 @@ const config = {
         path: path.resolve(__dirname, "dist"),
         filename: "main.js",
         clean: true,
-        assetModuleFilename: "./Media/Videos/[name].[hash].[ext]"
+        assetModuleFilename: "./Media/Videos/[name][hash][ext]"
     }
 
     ,module: {
         rules: [
+            {
+                test: /\.(ttf|otf)$/i,
+                type: "asset/resource",
+                exclude: /^node_modules$/,
+                generator: {
+                    filename: "fonts/[name][hash].[ext]"
+                }
+            },
             {
                 test: /\.tsx?$/i,
                 use: ["ts-loader"]
