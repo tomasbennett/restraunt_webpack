@@ -113,11 +113,17 @@ svg#back-arrow-svg.non-active{
 
     /* transition: transform 800ms linear; */
 
+    & #background-circles-group{
+        opacity: 0;
+    }
+
     & #inner-background-circle{
         animation: none;
 
-        opacity: 0;
+        /* opacity: 0; */
     }
+
+
 
 }
 
@@ -149,7 +155,7 @@ svg#back-arrow-svg.non-active{
 
     font-style: italic;
 
-    font-size: 3.8rem;
+    font-size: 4.8rem;
 
     text-align: center;
 }
