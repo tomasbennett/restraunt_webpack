@@ -3,6 +3,7 @@ import { IComponent, IComponentRemovable, IComponentEventListener, IComponentInt
 import { PageState, PageStateManager } from "../Conditionals/PageState";
 import { ScreenFactory, ScreenTemplate } from "../Conditionals/Screens";
 
+import { HomeTraverseComponent, MenuTraverseComponent } from "./StaticEventButtons";
 
 
 export class ContactScreenFactory extends ScreenFactory {
@@ -18,12 +19,19 @@ export class ContactScreenFactory extends ScreenFactory {
 class ContactScreen extends ScreenTemplate {
     private contactComponent: IComponentRemovable;
 
+    private homeTraverseButton: IComponentEventListener;
+    private menuTraverseButton: IComponentEventListener;
+
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         super(stateManager, eventTracker);
 
         this.contactComponent = new ContactComponent();
 
+        this.homeTraverseButton = new HomeTraverseComponent(this.eventTracker);
+        this.menuTraverseButton = new MenuTraverseComponent(this.eventTracker);
+
         this.components = [this.contactComponent];
+        this.componentsEvent = [this.homeTraverseButton, this.menuTraverseButton]
         this.componentsRemovable = [this.contactComponent];
     }
 }
@@ -35,16 +43,26 @@ export class ContactPage implements PageState {
     private screenFactory: ScreenFactory;
     private screenTemplate!: ScreenTemplate;
 
+    private contactButton: HTMLElement;
+
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         this.screenFactory = new ContactScreenFactory(stateManager, eventTracker);
+    
+        this.contactButton = document.getElementById("contacts-button")!;
     }
 
     load(): void {
+        this.contactButton.classList.add("current-page");
+
         this.screenTemplate = this.screenFactory.instantiate();
     }
 
     exit(): void {
+        this.contactButton.classList.remove("current-page");
+        
+
         this.screenTemplate.remove();
+        this.screenTemplate.removeEventListeners();
     }
 }
 
@@ -59,7 +77,8 @@ export class ContactComponent implements IComponentRemovable {
     }
 
     render(): void {
-        document.body.appendChild(this.contactButton);
+        const content: HTMLElement = document.getElementById("content")!;
+        content.appendChild(this.contactButton);
     }
 
     removeElem(): void {

@@ -3,6 +3,8 @@ import { IComponent, IComponentRemovable, IComponentEventListener, IComponentInt
 import { PageState, PageStateManager } from "../Conditionals/PageState";
 import { ScreenFactory, ScreenTemplate } from "../Conditionals/Screens";
 
+import { HomeTraverseComponent, ContactTraverseComponent } from "./StaticEventButtons";
+
 
 
 export class MenuScreenFactory extends ScreenFactory {
@@ -18,12 +20,19 @@ export class MenuScreenFactory extends ScreenFactory {
 class MenuScreen extends ScreenTemplate {
     private menuComponent: IComponentRemovable;
 
+    private homeTraverseButton: IComponentEventListener;
+    private contactTraverseButton: IComponentEventListener;
+
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         super(stateManager, eventTracker);
 
         this.menuComponent = new MenuComponent();
 
+        this.homeTraverseButton = new HomeTraverseComponent(this.eventTracker);
+        this.contactTraverseButton = new ContactTraverseComponent(this.eventTracker);
+
         this.components = [this.menuComponent];
+        this.componentsEvent = [this.homeTraverseButton, this.contactTraverseButton];
         this.componentsRemovable = [this.menuComponent];
     }
 }
@@ -35,23 +44,32 @@ export class MenuPage implements PageState {
     private screenFactory: ScreenFactory;
     private screenTemplate!: ScreenTemplate;
 
+    private menuButton: HTMLElement;
+
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         this.screenFactory = new MenuScreenFactory(stateManager, eventTracker);
+    
+        this.menuButton = document.getElementById("menu-button")!;
     }
 
     load(): void {
+        this.menuButton.classList.add("current-page");
+
         this.screenTemplate = this.screenFactory.instantiate();
     }
 
     exit(): void {
+        this.menuButton.classList.remove("current-page");
+
         this.screenTemplate.remove();
+        this.screenTemplate.removeEventListeners();
     }
 }
 
 
 
 export class MenuComponent implements IComponentRemovable {
-    private menuButton: HTMLDivElement;
+    private menuButton: HTMLElement;
 
     constructor() {
         this.menuButton = document.createElement("div");
@@ -59,7 +77,8 @@ export class MenuComponent implements IComponentRemovable {
     }
 
     render(): void {
-        document.body.appendChild(this.menuButton);
+        const content: HTMLElement = document.getElementById("content")!;
+        content.appendChild(this.menuButton);
     }
 
     removeElem(): void {

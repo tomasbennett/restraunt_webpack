@@ -64,12 +64,19 @@ svg#back-arrow-svg{
     height: 70%;
     aspect-ratio: 1;
 
-    cursor: pointer;
+    
 
     /* transform: scale(1); */
 
+    & #layer1{
+        cursor: pointer;
+    }
+
+
     & #background-circles-group{
         overflow: hidden;
+
+        
     }
 
 
@@ -105,13 +112,16 @@ svg#back-arrow-svg{
 
 
 svg#back-arrow-svg.non-active{
-    cursor: not-allowed;
 
     filter: grayscale(100%);
 
     /* transform: scale(0.9); */
 
     /* transition: transform 800ms linear; */
+
+    & #layer1{
+        cursor: not-allowed;
+    }
 
     & #background-circles-group{
         opacity: 0;

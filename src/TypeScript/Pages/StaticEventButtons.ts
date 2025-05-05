@@ -16,9 +16,6 @@ export class StaticScreenFactory extends ScreenFactory {
 
 
 class StaticScreen extends ScreenTemplate {
-    private homeTraverseComponent: IComponentEventListener;
-    private menuTraverseComponent: IComponentEventListener;
-    private contactTraverseComponent: IComponentEventListener;
 
     private backButton: IComponentEventListener;
     
@@ -26,15 +23,11 @@ class StaticScreen extends ScreenTemplate {
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         super(stateManager, eventTracker);
 
-        this.homeTraverseComponent = new HomeTraverseComponent(this.eventTracker);
-        this.menuTraverseComponent = new MenuTraverseComponent(this.eventTracker);
-        this.contactTraverseComponent = new ContactTraverseComponent(this.eventTracker);
-
         this.backButton = new BackButtonComponent(this.eventTracker);
 
 
-        this.components = [this.homeTraverseComponent, this.menuTraverseComponent, this.contactTraverseComponent, this.backButton];
-        this.componentsEvent = [this.homeTraverseComponent, this.menuTraverseComponent, this.contactTraverseComponent, this.backButton];
+        this.components = [this.backButton];
+        this.componentsEvent = [this.backButton];
     }
 }
 
@@ -85,7 +78,6 @@ export class HomeTraverseComponent implements IComponentEventListener {
         return this.homeTraverseButton;
     }
 }
-
 
 
 export class MenuTraverseComponent implements IComponentEventListener {

@@ -3,6 +3,9 @@ import { IComponent, IComponentRemovable, IComponentEventListener, IComponentInt
 import { PageState, PageStateManager } from "../Conditionals/PageState";
 import { ScreenFactory, ScreenTemplate } from "../Conditionals/Screens";
 
+import { MenuTraverseComponent, ContactTraverseComponent } from "./StaticEventButtons";
+
+
 
 
 export class HomeScreenFactory extends ScreenFactory {
@@ -27,6 +30,10 @@ class HomeScreen extends ScreenTemplate {
     private homeDescHorizontal: IComponentRemovable;
     private homeDesc: IComponentRemovable;
 
+
+    private menuTraverseButton: IComponentEventListener;
+    private contactTraverseButton: IComponentEventListener;
+
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         super(stateManager, eventTracker);
 
@@ -43,8 +50,13 @@ class HomeScreen extends ScreenTemplate {
         this.homeDesc = new HomeDescComponent();
 
 
+        this.menuTraverseButton = new MenuTraverseComponent(this.eventTracker);
+        this.contactTraverseButton = new ContactTraverseComponent(this.eventTracker);
+
+
 
         this.components = [this.homeTitleComponent, this.homeDescContainer, this.homeTitleFirstLine, this.homeTitleSecondLine, this.homeDescHorizontal, this.homeDesc];
+        this.componentsEvent = [this.menuTraverseButton, this.contactTraverseButton];
         this.componentsRemovable = [this.homeTitleComponent, this.homeDescContainer, this.homeTitleFirstLine, this.homeTitleSecondLine, this.homeDescHorizontal, this.homeDesc];
     }
 }
@@ -56,16 +68,25 @@ export class HomePage implements PageState {
     private screenFactory: ScreenFactory;
     private screenTemplate!: ScreenTemplate;
 
+    private homeButton: HTMLElement;
+
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         this.screenFactory = new HomeScreenFactory(stateManager, eventTracker);
+    
+        this.homeButton = document.getElementById("home-button")!;
     }
 
     load(): void {
+        this.homeButton.classList.add("current-page");
+
         this.screenTemplate = this.screenFactory.instantiate();
     }
 
     exit(): void {
         this.screenTemplate.remove();
+        this.screenTemplate.removeEventListeners();
+
+        this.homeButton.classList.remove("current-page");
     }
 }
 

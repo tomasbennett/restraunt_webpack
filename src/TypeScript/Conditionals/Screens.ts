@@ -3,9 +3,9 @@ import { IComponent, IComponentRemovable, IComponentEventListener, IComponentInt
 import { PageStateManager } from "./PageState";
 
 export class ScreenTemplate {
-    protected components!: IComponent[];
-    protected componentsRemovable!: IComponentRemovable[];
-    protected componentsEvent!: IComponentEventListener[];
+    protected components: IComponent[] = [];
+    protected componentsRemovable: IComponentRemovable[] = [];
+    protected componentsEvent: IComponentEventListener[] = [];
 
     protected stateManager: PageStateManager;
     protected eventTracker: EventTracker;
