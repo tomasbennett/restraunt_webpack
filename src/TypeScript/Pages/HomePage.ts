@@ -69,15 +69,18 @@ export class HomePage implements PageState {
     private screenTemplate!: ScreenTemplate;
 
     private homeButton: HTMLElement;
+    private content: HTMLElement;
 
     constructor(stateManager: PageStateManager, eventTracker: EventTracker) {
         this.screenFactory = new HomeScreenFactory(stateManager, eventTracker);
     
         this.homeButton = document.getElementById("home-button")!;
+        this.content = document.getElementById("content")!;
     }
 
     load(): void {
         this.homeButton.classList.add("current-page");
+        this.content.classList.add("home-page");
 
         this.screenTemplate = this.screenFactory.instantiate();
     }
@@ -87,6 +90,7 @@ export class HomePage implements PageState {
         this.screenTemplate.removeEventListeners();
 
         this.homeButton.classList.remove("current-page");
+        this.content.classList.remove("home-page");
     }
 }
 

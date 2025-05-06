@@ -177,18 +177,18 @@ p.menu-item-desc{
 
 
     
-div#menu-items-container{
+    div#menu-items-container{
 
-    gap: 12rem;
+        gap: 12rem;
 
-    max-height: 64rem;
-    max-width: 78rem;
+        max-height: 64rem;
+        max-width: 78rem;
 
-    padding: 2rem 4rem;
+        padding: 2rem 4rem;
 
-    margin-left: auto;
+        margin-left: auto;
 
-}
+    }
 
 
 

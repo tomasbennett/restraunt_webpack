@@ -63,6 +63,11 @@ const config = {
                                 tag: "link",
                                 attribute: "href",
                                 type: "src"
+                            },
+                            {
+                                tag: "img",
+                                attribute: "src",
+                                type: "src"
                             }
                         ]
                     }

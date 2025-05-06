@@ -1,0 +1,148 @@
+div#content.contact-page{
+    flex-shrink: 0;
+
+    margin-top: auto;
+
+
+    width: 90%;
+    height: 90%;
+
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 5rem;
+
+    margin-left: 4rem;
+}
+
+
+div#contact-page-header{
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+}
+
+
+
+div#contact-page-header h1{
+    font-size: 9rem;
+
+    letter-spacing: .1rem;
+
+    line-height: 1;
+
+    width: min-content;
+}
+
+
+
+div#contact-page-header hr{
+    flex-shrink: 0;
+
+    height: .3rem;
+    width: 20rem;
+
+    border-radius: .6rem;
+
+    background-color: var(--light-orange-colour);
+
+}
+
+
+
+div#contact-container{
+    flex-shrink: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "github ."
+                         ". linkedin";
+    
+
+    gap: 2rem;
+
+    width: 50rem;
+    height: 50rem;
+
+
+}
+
+div.contact-background{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 1.5rem;
+
+    box-shadow: 0 0 4rem black;
+
+    overflow: hidden;
+
+    transition: transform 500ms linear;
+}
+
+div.contact-background:hover{
+    transform: scale(1.1);
+}
+
+
+div.contact-background:first-child{
+    background-color: var(--white-colour);
+
+    grid-area: github;
+}
+
+div.contact-background:last-child{
+    grid-area: linkedin;
+}
+
+
+
+
+div.contact-background a{
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+div.contact-background img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+
+@media (width >= 80rem) {
+
+    div#content.contact-page{
+        width: 75%;
+
+        margin-left: 8rem;
+    }
+
+
+
+    div#contact-page-header h1{
+        font-size: 12rem;
+    
+        width: 100%;
+    }
+
+
+
+
+        
+    div#contact-container{
+        margin-left: auto;
+    }
+
+
+
+}
