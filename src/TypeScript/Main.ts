@@ -14,14 +14,14 @@ const videoScroller: IScroller = new VideoScroller();
 videoScroller.itemRecursion();
 
 
-const pageStateManager: PageStateManager = new PageStateManager();
+// const pageStateManager: PageStateManager = new PageStateManager();
 
-const eventTracker: EventTracker = new EventTracker();
+// const eventTracker: EventTracker = new EventTracker();
 
-const homePageCommand: ICommand = new HomePageCommand(pageStateManager, eventTracker);
-eventTracker.addEvent(homePageCommand);
+// const homePageCommand: ICommand = new HomePageCommand(pageStateManager, eventTracker);
+// eventTracker.addEvent(homePageCommand);
 
-const staticPageCommand: ICommand = new RenderStaticPageCommand(pageStateManager, eventTracker);
-staticPageCommand.execute();
+// const staticPageCommand: ICommand = new RenderStaticPageCommand(pageStateManager, eventTracker);
+// staticPageCommand.execute();
 
 

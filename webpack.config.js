@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { default: test } = require("node:test");
+const { type } = require("os");
 
 
 const config = {
@@ -17,6 +18,20 @@ const config = {
 
     ,module: {
         rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'Media/images/[name][hash][ext]'
+                }
+            },
+            {
+                test: /\.(mp4|webm)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'Media/videos/[name][hash][ext]'
+                }
+            },
             {
                 test: /\.(ttf|otf)$/i,
                 type: "asset/resource",
@@ -42,6 +57,11 @@ const config = {
                             {
                                 tag: "source",
                                 attribute: "src",
+                                type: "src"
+                            },
+                            {
+                                tag: "link",
+                                attribute: "href",
                                 type: "src"
                             }
                         ]

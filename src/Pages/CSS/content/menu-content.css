@@ -1,0 +1,195 @@
+
+div#content.menu-page{
+    flex-shrink: 0;
+
+    margin-top: auto;
+
+
+    width: 90%;
+    height: 90%;
+
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: 5rem;
+
+    margin-left: 4rem;
+
+
+}
+
+div#menu-header-container{
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+}
+
+
+
+
+
+h1#menu-title{
+    flex-shrink: 0;
+
+
+    font-size: 9rem;
+
+    letter-spacing: .1rem;
+
+    line-height: 1;
+}
+
+
+div#content.menu-page hr{
+    flex-shrink: 0;
+
+    height: .3rem;
+    width: 15rem;
+
+    border-radius: .6rem;
+
+    background-color: var(--light-orange-colour);
+}
+
+
+
+div#menu-items-container{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10rem;
+
+    max-height: 56rem;
+    max-width: 57rem;
+
+    
+    background-color: rgba(0, 0, 0, 0.3);
+
+    padding: 2rem 2rem;
+
+
+    overflow-y: auto;
+
+    transition: background-color 500ms linear;
+
+}
+
+
+
+div#menu-items-container:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+
+div.menu-item{
+    display: flex;
+    gap: 3rem;
+
+
+}
+
+div.menu-item-title-container{
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+h3.menu-item-title{
+    flex-shrink: 0;
+
+    width: 15rem;
+
+    font-size: 2.2rem;
+
+    font-family: 'Playfair Display';
+    font-style: italic;
+}
+
+
+
+div.menu-item-title-container hr{
+    max-width: 8rem;
+    max-height: .2rem;
+}
+
+
+p.menu-item-desc{
+    max-height: 80%;
+
+    margin: auto 0;
+
+    text-align: end;
+}
+
+
+
+
+
+
+
+
+
+
+@media (width >= 80rem) {
+
+    div#content.menu-page{
+        width: 75%;
+
+        margin-left: 8rem;
+    }
+
+
+
+    h1#menu-title{
+        font-size: 12rem;
+    
+        width: 100%;
+    }
+
+
+    h3.menu-item-title{
+    
+        width: 26rem;
+    
+        font-size: 3rem;
+    }
+
+    div.menu-item-title-container hr{
+        max-width: 14rem;
+    }
+
+
+    div.menu-item{
+        gap: 2rem;
+    
+    }
+
+
+    
+div#menu-items-container{
+
+    gap: 12rem;
+
+    max-height: 64rem;
+    max-width: 78rem;
+
+    padding: 2rem 4rem;
+
+    margin-left: auto;
+
+}
+
+
+
+}
