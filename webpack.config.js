@@ -76,7 +76,7 @@ const config = {
         ]
     }
 
-    ,mode: "development"
+    ,mode: "production"
 
     ,resolve: {
         extensions: [".js", ".css", ".json", ".jsx", ".wasm", ".ts"]
